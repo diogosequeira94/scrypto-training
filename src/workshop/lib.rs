@@ -2,7 +2,7 @@ use scrypto::prelude::*;
 
 blueprint{
     struct TokenSale {
-        useful_token_vault: Vault,
+        ctw_token_vault: Vault,
     }
 
     impl TokenSale {
@@ -12,5 +12,11 @@ blueprint{
                 .metadata("symbol", "CTW")
                 .initial_supply(1000);
         }
+
+        Self {
+            ctw_token_vault: Vault::with_bucket(bucket);
+        }
+        .instantiate()
+        .globalize()
     }
 }
