@@ -4,6 +4,7 @@ use scrypto::prelude::*;
 /// [new()] is a function as it does not require any Component State
 /// [buy()] is a method as it requires Component State (reference to self)
 /// It need to be mutable because we are gonna be mutating the component state (taking CTW tokens and XRD)
+/// ///
 blueprint {
     struct TokenSale {
         ctw_token_vault: Vault,
