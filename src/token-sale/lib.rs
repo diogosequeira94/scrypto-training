@@ -22,8 +22,8 @@ blueprint {
 
         Self {
             /// Creates an empty vault and fills it with an initial bucket of resource.
-            ctw_token_vault: Vault::with_bucket(bucket);
-            xrd_token_vault: Vault::new(RADIX_TOKEN);
+            ctw_token_vault: Vault::with_bucket(bucket),
+            xrd_token_vault: Vault::new(RADIX_TOKEN),
         }
         .instantiate()
         .globalize()
@@ -32,6 +32,16 @@ blueprint {
     pub fn buy(&mut self, funds: Bucket) => Bucket {
         let purchase_amount: Decimal = funds.amount() / self.price_per_token;
         self.xrd_token_vault.put(funds);
-        self.ctw_token_vault.take(purchase_amount);
+        self.ctw_token_vault.take(purchase_amount)
+    }
+
+    pub fn withdraw_funds(&mut self, amount: Decimal) => Bucket {
+        /// We will withdraw [amount] tokens from xrd_token_vault
+        self.xrd_token_vault.take(amount)
+    }
+
+    /// Changing the price doesnt return anything
+    pub fn change_price(&mut self, price: Decimal){
+        self.price_per_token = price
     }
 }
