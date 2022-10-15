@@ -28,6 +28,8 @@ blueprint{
     }
 
     pub fn buy(&mut self, funds: Bucket) => Bucket{
-        ß
+        let purchase_amount: Decimal = funds.amount() / self.price_per_token;
+        self.xrd_token_vault.put(funds);
+        self.ctw_token_vault.take(purchase_amount);
     }
 }
