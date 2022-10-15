@@ -4,14 +4,15 @@ use scrypto::prelude::*;
 /// [new()] is a function as it does not require any Component State
 /// [buy()] is a method as it requires Component State (reference to self)
 /// It need to be mutable because we are gonna be mutating the component state (taking CTW tokens and XRD)
-blueprint{
+blueprint {
     struct TokenSale {
         ctw_token_vault: Vault,
         xrd_token_vault: Vault,
+        price_per_token: Decimal,
     }
 
     impl TokenSale {
-        pub fn new() => ComponentAddress {
+        pub fn new(price_per_token: Decimal) => ComponentAddress {
             let bucket: Bucket = ResourceBuilder::new_fungible()
                 .metadata("name", "CriticalTechWorks Token")
                 .metadata("symbol", "CTW")
@@ -27,7 +28,7 @@ blueprint{
         .globalize()
     }
 
-    pub fn buy(&mut self, funds: Bucket) => Bucket{
+    pub fn buy(&mut self, funds: Bucket) => Bucket {
         let purchase_amount: Decimal = funds.amount() / self.price_per_token;
         self.xrd_token_vault.put(funds);
         self.ctw_token_vault.take(purchase_amount);
