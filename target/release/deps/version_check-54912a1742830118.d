@@ -1,0 +1,10 @@
+/Users/ctw01015-admin/Desktop/Blockchain/scrypto-training/target/release/deps/version_check-54912a1742830118.rmeta: /Users/ctw01015-admin/.cargo/registry/src/github.com-1ecc6299db9ec823/version_check-0.9.4/src/lib.rs /Users/ctw01015-admin/.cargo/registry/src/github.com-1ecc6299db9ec823/version_check-0.9.4/src/version.rs /Users/ctw01015-admin/.cargo/registry/src/github.com-1ecc6299db9ec823/version_check-0.9.4/src/channel.rs /Users/ctw01015-admin/.cargo/registry/src/github.com-1ecc6299db9ec823/version_check-0.9.4/src/date.rs
+
+/Users/ctw01015-admin/Desktop/Blockchain/scrypto-training/target/release/deps/libversion_check-54912a1742830118.rlib: /Users/ctw01015-admin/.cargo/registry/src/github.com-1ecc6299db9ec823/version_check-0.9.4/src/lib.rs /Users/ctw01015-admin/.cargo/registry/src/github.com-1ecc6299db9ec823/version_check-0.9.4/src/version.rs /Users/ctw01015-admin/.cargo/registry/src/github.com-1ecc6299db9ec823/version_check-0.9.4/src/channel.rs /Users/ctw01015-admin/.cargo/registry/src/github.com-1ecc6299db9ec823/version_check-0.9.4/src/date.rs
+
+/Users/ctw01015-admin/Desktop/Blockchain/scrypto-training/target/release/deps/version_check-54912a1742830118.d: /Users/ctw01015-admin/.cargo/registry/src/github.com-1ecc6299db9ec823/version_check-0.9.4/src/lib.rs /Users/ctw01015-admin/.cargo/registry/src/github.com-1ecc6299db9ec823/version_check-0.9.4/src/version.rs /Users/ctw01015-admin/.cargo/registry/src/github.com-1ecc6299db9ec823/version_check-0.9.4/src/channel.rs /Users/ctw01015-admin/.cargo/registry/src/github.com-1ecc6299db9ec823/version_check-0.9.4/src/date.rs
+
+/Users/ctw01015-admin/.cargo/registry/src/github.com-1ecc6299db9ec823/version_check-0.9.4/src/lib.rs:
+/Users/ctw01015-admin/.cargo/registry/src/github.com-1ecc6299db9ec823/version_check-0.9.4/src/version.rs:
+/Users/ctw01015-admin/.cargo/registry/src/github.com-1ecc6299db9ec823/version_check-0.9.4/src/channel.rs:
+/Users/ctw01015-admin/.cargo/registry/src/github.com-1ecc6299db9ec823/version_check-0.9.4/src/date.rs:

@@ -1,0 +1,2 @@
+cargo:rustc-env=TYPENUM_BUILD_CONSTS=/Users/ctw01015-admin/Desktop/Blockchain/scrypto-training/target/wasm32-unknown-unknown/release/build/typenum-e8b8a21d86cdef80/out/consts.rs
+cargo:rustc-env=TYPENUM_BUILD_OP=/Users/ctw01015-admin/Desktop/Blockchain/scrypto-training/target/wasm32-unknown-unknown/release/build/typenum-e8b8a21d86cdef80/out/op.rs
