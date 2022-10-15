@@ -18,6 +18,12 @@ blueprint {
                 .metadata("name", "CriticalTechWorks Token")
                 .metadata("symbol", "CTW")
                 .initial_supply(1000);
+
+            let seller_badge: Bucket = ResourceBuilder::new_fungible()
+            .divisibility(DIVISIBILITY_NONE)
+            .metadata("name", "Seller Badge")
+            .metadata("symbol", "Seller")
+            .initial_supply(1);    
         }
 
         Self {
