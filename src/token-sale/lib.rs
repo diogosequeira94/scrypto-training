@@ -13,7 +13,7 @@ blueprint {
     }
 
     impl TokenSale {
-        pub fn new(price_per_token: Decimal) => ComponentAddress {
+        pub fn new(price_per_token: Decimal) => (ComponentAddress, Bucket) {
             let bucket: Bucket = ResourceBuilder::new_fungible()
                 .metadata("name", "CriticalTechWorks Token")
                 .metadata("symbol", "CTW")
@@ -40,6 +40,9 @@ blueprint {
         }
         .instantiate()
         .globalize()
+
+        //Returns the component address and the seller badge (returning because of the tuple)
+        (component_address, seller_badge)
     }
 
     pub fn buy(&mut self, funds: Bucket) => Bucket {
