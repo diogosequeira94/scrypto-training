@@ -24,6 +24,13 @@ blueprint {
             .metadata("name", "Seller Badge")
             .metadata("symbol", "Seller")
             .initial_supply(1);    
+
+            let component_address: ComponentAddress = Self {
+                ctw_token_vault: Vault::with_bucket(bucket),
+                xrd_token_vault: Vault::new(RADIX_TOKEN),
+                price_per_token: price_per_token,
+
+            }
         }
 
         Self {
