@@ -5,7 +5,7 @@ use scrypto::prelude::*;
 /// [buy()] is a method as it requires Component State (reference to self)
 /// It need to be mutable because we are gonna be mutating the component state (taking CTW tokens and XRD)
 /// 
-blueprint {
+blueprint! {
     struct TokenSale {
         ctw_token_vault: Vault,
         xrd_token_vault: Vault,
@@ -24,6 +24,13 @@ blueprint {
             .metadata("name", "Seller Badge")
             .metadata("symbol", "Seller")
             .initial_supply(1);    
+
+            /// Define who can can certain methods
+            /// The seller badge is the only thing that can call this methods
+            let access_rules: AccessRules = AccessRules::new()
+                .method("withdraw_funds", rule!(require(seller_badge.resource_address())))
+                .method("change_price", rule!(require(seller_badge.resource_address())))
+                .default(rule!(allow_all));
 
             let component_address: ComponentAddress = Self {
                 ctw_token_vault: Vault::with_bucket(bucket),
