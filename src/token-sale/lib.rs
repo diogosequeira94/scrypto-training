@@ -41,7 +41,7 @@ blueprint {
         .instantiate()
         .globalize()
 
-        //Returns the component address and the seller badge (returning because of the tuple)
+        /// Returns the component address and the seller badge (returning because of the tuple)
         (component_address, seller_badge)
     }
 
