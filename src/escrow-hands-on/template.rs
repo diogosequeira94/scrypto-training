@@ -215,8 +215,16 @@ blueprint! {
 
             // Get the reference to the vault in order for me to pay 
             let vault: &mut Vault = self.vaults.get_mut(&obligation.amount_to_pay).unwrap();
-            
-            
+
+            // People can send something over the amount (wrongly)
+
+            let funds_to_deposit: Bucket = match obligation.amount_to_pay {
+                ResourceSpecifier::Fungible  {amount, ... } => funds.take(amount: amount),
+                ResourceSpecifier::Fungible  {non_fungible_ids, ... } => funds.take_non_fungibles(&non_fungible_ids),
+              };
+
+              vault.put(funds_to_deposit);
+
        }
 
        /// Withdraws funds from the escrow after both parties have deposited their funds.
