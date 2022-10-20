@@ -46,7 +46,8 @@ blueprint! {
             xrd_token_vault: Vault::new(RADIX_TOKEN),
         }
         .instantiate()
-        .globalize()
+        .add_access_check(access_rules)
+        .globalize();
 
         /// Returns the component address and the seller badge (returning because of the tuple)
         (component_address, seller_badge)
