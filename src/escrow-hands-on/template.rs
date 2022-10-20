@@ -153,7 +153,14 @@ blueprint! {
         Vault::new(to_be_paid_by_party_2.resource_address())
     );
 
-    /// let component_address
+    let component_address: ComponentAddress = Self { 
+        vaults,
+        obligation_non_fungible_resource: escrow_obligation.resource_address(),
+        is_escrow_fulfilled; false
+    }
+    .instantiate()
+    .globalize();
+
     /// 
     (component_address, escrow_obligation)
        }
