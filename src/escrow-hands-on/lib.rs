@@ -1,11 +1,10 @@
 use scrypto::prelude::*;
 
 blueprint! {
-    struct NFTHandsOn {
+    struct EscrowHandsOn {
     }
 
-    impl NFTHandsOn {
-
+    impl EscrowHandsOn {
     }
 
 }

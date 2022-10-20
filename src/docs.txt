@@ -1,0 +1,22 @@
+       /// Resource Creation
+        let bucket: Bucket = ResourceBuilder::new_fungible()
+            .metadata("name", "Company Shares")
+            .metadata("symbol", "SHARE")
+            .metadata("description", "Each token represents a share in the Company")
+            .mintable(rule!(require(admin_badge)), mutability: LOCKED)
+            .mintable(rule!(require(allow_all)))  //// LOCKED == Cannot be changed in the future, never
+
+
+            let access_rules: AccessRule = rule!(
+                (require(supervisor_badge) && require(admin_badge) && (require(yo_momma)))
+
+            );
+
+
+Escrow:
+
+Components: THere are 2 Vaults
+
+
+USer account --------> Bucket with 10 BTC ----> PUT IN VAUKLT 1
+Users 2 deposit the other token in the other account ------> Everything is then swapped
