@@ -154,6 +154,8 @@ blueprint! {
     );
 
     /// let component_address
+    /// 
+    (component_address, escrow_obligation)
        }
 
        /// Deposits funds into the escrow by one of the parties.
@@ -224,6 +226,7 @@ blueprint! {
               };
 
               vault.put(funds_to_deposit);
+              funds
 
        }
 
@@ -256,8 +259,18 @@ blueprint! {
        ///
        /// [`Bucket`] - A bucket containing the owed tokens.
        pub fn withdraw(&mut self, obligation_badge: Proof) -> Bucket {
-           // TODO: Complete this function yourself.
-           todo!()
+           assert(
+            self.is_escrow_fulfilled(),
+            "You can not withdraw your funds unless the  escrow is not concluded",
+           );
+
+
+           let obligation_badge: ValidatedProof = obligation_badge
+                .validate.proof(self.obligation_non_fungible_resource)
+                .expect("Invalid badge provided");
+
+            let obligation: EscrowObligation = obligation_badge.non_fungible().data();
+            let vault: &mut Vault = self.vaults.get_mut(&obligation.amount_to_get).unwrap();    
        }
 
        /// Checks if the escrow is fulfilled or not and returns a boolean output.
