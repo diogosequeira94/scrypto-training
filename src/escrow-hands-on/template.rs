@@ -108,7 +108,49 @@ blueprint! {
         );
 
         assert!(to_be_paid_by_party_2.validate().is_ok(),
-        "First is not valid"
+        "Second is not valid"
+    );
+
+    /// Obligations
+
+
+    let party_1_obligation: EscrowObligation = EscrowObligation {
+        amount_to_pay: to_be_paid_by_party_1.clone(),
+        amount_to_get: to_be_paid_by_party_2.clone(),
+
+
+    }
+
+    let party_2_obligation: EscrowObligation = EscrowObligation {
+        amount_to_pay: to_be_paid_by_party_2.clone(),
+        amount_to_get: to_be_paid_by_party_1.clone(),
+    }
+
+    let escrow_obligation: Bucket = ResourceBuilder::new_non_fungible()
+    .metadata("name", "Escrow Obligation")
+    .metadata("symbol", "ESCROW")
+    .metadata("description", "This resource describes the obligation of the two parties involved in the exchange")
+    .initial_supply(
+        [
+            (
+                NonFungibleId::from_u32(1),
+                party_1_obligation,
+          ),
+            (
+            NonFungibleId::from_u32(2),
+             party_2_obligation,
+          ),
+        ]
+    );
+
+    let mut vaults: 8TreeMap<ResourceSpecifier, Vault> = 8TreeMap::new();
+    vaults.insert(
+        to_be_paid_by_party_1.clone(),
+        Vault::new(to_be_paid_by_party_1.resource_address())
+    );
+    vaults.insert(
+        to_be_paid_by_party_2.clone(),
+        Vault::new(to_be_paid_by_party_2.resource_address())
     );
        }
 
