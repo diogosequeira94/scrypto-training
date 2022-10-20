@@ -209,6 +209,12 @@ blueprint! {
                 .expect("Invalid badge provided");
 
             /// After this lets get the data on the badge
+            let obligation: EscrowObligation = obligation_badge.non_fungible().data();
+
+
+
+            // Get the reference to the vault in order for me to pay 
+            let vault: &mut Vault = self.vaults.get_mut(&obligation.amount_to_pay).unwrap();
             
             
        }
