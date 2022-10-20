@@ -1,5 +1,5 @@
 use scrypto::prelude::*;
- 
+
 blueprint! {
    /// A struct that defines a two-party two-resource escrow blueprint.
    ///
@@ -39,7 +39,7 @@ blueprint! {
        /// where the 10 XRD will go to, and the other of a 1 BTC [`ResourceSpecifier`] which maps
        /// to a [`Vault`] containing 1 BTC (Once the escrow contract has been fulfilled.)
        vaults: BTreeMap<ResourceSpecifier, Vault>,
- 
+
        /// Each party in the Escrow will be given an NFT which defines its obligation, or the
        /// amount of tokens that it needs to pay the Escrow to fulfill its part. This
        /// [`ResourceAddress`] is of the non-fungible token which is minted for the two parties
@@ -48,13 +48,13 @@ blueprint! {
        /// This resource address will be stored in the component state since we would want to
        /// verify that the NFT badges presented to the component match this [`ResourceAddress`].
        obligation_non_fungible_resource: ResourceAddress,
- 
+
        /// A boolean which is used to cache whether the escrow has been fulfilled or not. When
        /// [`true`] then this escrow has been fulfilled and all parties are allowed to withdraw
        /// the tokens owed to them. When [`false`], then this escrow has not been fulfilled yet.
        is_escrow_fulfilled: bool
    }
- 
+
    impl Escrow {
        /// Instantiates a new [`Escrow`] component with the specified obligations to the two
        /// parties.
@@ -102,9 +102,16 @@ blueprint! {
            to_be_paid_by_party_1: ResourceSpecifier,
            to_be_paid_by_party_2: ResourceSpecifier,
        ) -> (ComponentAddress, Bucket) {
-           
+           /// We need to make sure if the Resource Specifiers Are Valid
+            assert!(to_be_paid_by_party_1.validate().is_ok(),
+            "First is not valid"
+        );
+
+        assert!(to_be_paid_by_party_2.validate().is_ok(),
+        "First is not valid"
+    );
        }
- 
+
        /// Deposits funds into the escrow by one of the parties.
        ///
        /// This method is used to deposit funds into the escrow component by one of the parties of
@@ -154,7 +161,7 @@ blueprint! {
            // TODO: Complete this function yourself.
            todo!()
        }
- 
+
        /// Withdraws funds from the escrow after both parties have deposited their funds.
        ///
        /// This function is used to withdraw the amount owed to each party after the escrow has
@@ -187,7 +194,7 @@ blueprint! {
            // TODO: Complete this function yourself.
            todo!()
        }
- 
+
        /// Checks if the escrow is fulfilled or not and returns a boolean output.
        ///
        /// This function checks the `vaults` state variable on the component to see if the escrow
@@ -224,7 +231,7 @@ blueprint! {
                                vault.resource_address() == *resource_address
                                    && vault.amount() >= *amount
                            }
- 
+
                            // If this is a non-fungible resource specifier then check that the resource
                            // address matches and that the set of non-fungible ids in the specifier is
                            // a subset of those in the vault.
@@ -243,11 +250,11 @@ blueprint! {
                    .all(|x| x);
                self.is_escrow_fulfilled
            }
-          
+
        }
    }
 }
- 
+
 /// A struct that defines the [`NonFungibleData`] of the NFTs that are given to the two parties of
 /// the escrow.
 ///
@@ -256,12 +263,12 @@ blueprint! {
 /// tokens that the other party needs to pay.
 #[derive(Debug, NonFungibleData)]
 pub struct EscrowObligation {
-   /// The amount of tokens which this party needs to pay to the other party.
-   amount_to_pay: ResourceSpecifier,
-   /// The amount of tokens paid by the other party to this party.
-   amount_to_get: ResourceSpecifier,
+    /// The amount of tokens which this party needs to pay to the other party.
+    amount_to_pay: ResourceSpecifier,
+    /// The amount of tokens paid by the other party to this party.
+    amount_to_get: ResourceSpecifier,
 }
- 
+
 /// An enum used to specify a specific amount of a given resource or specific [`NonFungibleId`]s of
 /// a resource based on the type of the resource.
 ///
@@ -269,75 +276,75 @@ pub struct EscrowObligation {
 /// other.
 #[derive(Debug, TypeId, Encode, Decode, Describe, Ord, PartialOrd, Eq, PartialEq, Clone)]
 pub enum ResourceSpecifier {
-   /// A variant used to specify the amount of a fungible resource through the [`ResourceAddress`]
-   /// of the resource the amount of that resource as a [`Decimal`].
-   Fungible {
-       resource_address: ResourceAddress,
-       amount: Decimal,
-   },
-   /// A variant used to specify non-fungible of that resource based on the [`ResourceAddress`] of
-   /// the resource and a set of the [`NonFungibleId`]s being specified by the enum.
-   NonFungible {
-       resource_address: ResourceAddress,
-       non_fungible_ids: BTreeSet<NonFungibleId>,
-   },
+    /// A variant used to specify the amount of a fungible resource through the [`ResourceAddress`]
+    /// of the resource the amount of that resource as a [`Decimal`].
+    Fungible {
+        resource_address: ResourceAddress,
+        amount: Decimal,
+    },
+    /// A variant used to specify non-fungible of that resource based on the [`ResourceAddress`] of
+    /// the resource and a set of the [`NonFungibleId`]s being specified by the enum.
+    NonFungible {
+        resource_address: ResourceAddress,
+        non_fungible_ids: BTreeSet<NonFungibleId>,
+    },
 }
- 
+
 impl ResourceSpecifier {
-   /// Performs validation on a resource specifier to ensure that it makes sense.
-   ///
-   /// This method performs validation on [`ResourceSpecifier`]s to validate that they specify
-   /// amounts that make sense. The two main validations performed by this method are:
-   ///
-   /// 1. Validating that the `amount` field on [`ResourceSpecifier::Fungible`] is greater than or
-   /// equal to zero.
-   /// 2. Validating that the `non_fungible_ids` field on [`ResourceSpecifier::NonFungible`] is not
-   /// empty.
-   ///
-   /// There are other validations which can be added to this to ensure that no [`EscrowComponent`]
-   /// component can be created with invalid [`ResourceSpecifier`]s. Such as [`ResourceAddress`]
-   /// validations, divisibility validations for fungible tokens, and existence validations for
-   /// non-fungible tokens. However, those are not implemented in this method to keep it simple.
-   ///
-   /// # Returns:
-   ///
-   /// - [`Result<(), ()>`] - A result type that returns `Unit` in both the [`Result::Ok`] and
-   /// [`Result::Err`] cases. When [`Result::Ok`] is returned, then the validation has succeeded,
-   /// if [`Result::Err`] is returned then the validation has failed.
-   pub fn validate(&self) -> Result<(), ()> {
-       match self {
-           Self::Fungible { amount, .. } => {
-               if *amount <= Decimal::zero() {
-                   Err(())
-               } else {
-                   Ok(())
-               }
-           }
-           Self::NonFungible {
-               non_fungible_ids, ..
-           } => {
-               if non_fungible_ids.is_empty() {
-                   Err(())
-               } else {
-                   Ok(())
-               }
-           }
-       }
-   }
- 
-   /// Gets the resource address of the specified resource.
-   ///
-   /// # Returns
-   ///
-   /// [`ResourceAddress`] - The resource address of the specified resource.
-   pub fn resource_address(&self) -> ResourceAddress {
-       match self {
-           Self::Fungible {
-               resource_address, ..
-           }
-           | Self::NonFungible {
-               resource_address, ..
-           } => *resource_address,
-       }
-   }
+    /// Performs validation on a resource specifier to ensure that it makes sense.
+    ///
+    /// This method performs validation on [`ResourceSpecifier`]s to validate that they specify
+    /// amounts that make sense. The two main validations performed by this method are:
+    ///
+    /// 1. Validating that the `amount` field on [`ResourceSpecifier::Fungible`] is greater than or
+    /// equal to zero.
+    /// 2. Validating that the `non_fungible_ids` field on [`ResourceSpecifier::NonFungible`] is not
+    /// empty.
+    ///
+    /// There are other validations which can be added to this to ensure that no [`EscrowComponent`]
+    /// component can be created with invalid [`ResourceSpecifier`]s. Such as [`ResourceAddress`]
+    /// validations, divisibility validations for fungible tokens, and existence validations for
+    /// non-fungible tokens. However, those are not implemented in this method to keep it simple.
+    ///
+    /// # Returns:
+    ///
+    /// - [`Result<(), ()>`] - A result type that returns `Unit` in both the [`Result::Ok`] and
+    /// [`Result::Err`] cases. When [`Result::Ok`] is returned, then the validation has succeeded,
+    /// if [`Result::Err`] is returned then the validation has failed.
+    pub fn validate(&self) -> Result<(), ()> {
+        match self {
+            Self::Fungible { amount, .. } => {
+                if *amount <= Decimal::zero() {
+                    Err(())
+                } else {
+                    Ok(())
+                }
+            }
+            Self::NonFungible {
+                non_fungible_ids, ..
+            } => {
+                if non_fungible_ids.is_empty() {
+                    Err(())
+                } else {
+                    Ok(())
+                }
+            }
+        }
+    }
+
+    /// Gets the resource address of the specified resource.
+    ///
+    /// # Returns
+    ///
+    /// [`ResourceAddress`] - The resource address of the specified resource.
+    pub fn resource_address(&self) -> ResourceAddress {
+        match self {
+            Self::Fungible {
+                resource_address, ..
+            }
+            | Self::NonFungible {
+                resource_address, ..
+            } => *resource_address,
+        }
+    }
 }
