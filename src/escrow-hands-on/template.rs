@@ -152,6 +152,8 @@ blueprint! {
         to_be_paid_by_party_2.clone(),
         Vault::new(to_be_paid_by_party_2.resource_address())
     );
+
+    /// let component_address
        }
 
        /// Deposits funds into the escrow by one of the parties.
@@ -200,8 +202,15 @@ blueprint! {
        ///
        /// [`Bucket`] - A bucket containing any excess tokens that were sent to this method.
        pub fn deposit(&mut self, obligation_badge: Proof, mut funds: Bucket) -> Bucket {
-           // TODO: Complete this function yourself.
-           todo!()
+           /// First we need to make sure if the person passed the proper obligation badge (we have created)
+           
+           let obligation_badge: ValidatedProof = obligation_badge
+                .validate.proof(self.obligation_non_fungible_resource)
+                .expect("Invalid badge provided");
+
+            /// After this lets get the data on the badge
+            
+            
        }
 
        /// Withdraws funds from the escrow after both parties have deposited their funds.
