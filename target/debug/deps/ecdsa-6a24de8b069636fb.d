@@ -1,0 +1,11 @@
+/Users/ctw01015/Desktop/MyProjects/scrypto-training/target/debug/deps/libecdsa-6a24de8b069636fb.rmeta: /Users/ctw01015/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ecdsa-0.13.4/src/lib.rs /Users/ctw01015/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ecdsa-0.13.4/src/recovery.rs /Users/ctw01015/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ecdsa-0.13.4/src/der.rs /Users/ctw01015/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ecdsa-0.13.4/src/hazmat.rs /Users/ctw01015/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ecdsa-0.13.4/src/sign.rs /Users/ctw01015/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ecdsa-0.13.4/src/verify.rs /Users/ctw01015/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ecdsa-0.13.4/src/../README.md
+
+/Users/ctw01015/Desktop/MyProjects/scrypto-training/target/debug/deps/ecdsa-6a24de8b069636fb.d: /Users/ctw01015/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ecdsa-0.13.4/src/lib.rs /Users/ctw01015/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ecdsa-0.13.4/src/recovery.rs /Users/ctw01015/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ecdsa-0.13.4/src/der.rs /Users/ctw01015/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ecdsa-0.13.4/src/hazmat.rs /Users/ctw01015/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ecdsa-0.13.4/src/sign.rs /Users/ctw01015/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ecdsa-0.13.4/src/verify.rs /Users/ctw01015/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ecdsa-0.13.4/src/../README.md
+
+/Users/ctw01015/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ecdsa-0.13.4/src/lib.rs:
+/Users/ctw01015/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ecdsa-0.13.4/src/recovery.rs:
+/Users/ctw01015/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ecdsa-0.13.4/src/der.rs:
+/Users/ctw01015/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ecdsa-0.13.4/src/hazmat.rs:
+/Users/ctw01015/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ecdsa-0.13.4/src/sign.rs:
+/Users/ctw01015/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ecdsa-0.13.4/src/verify.rs:
+/Users/ctw01015/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ecdsa-0.13.4/src/../README.md:
