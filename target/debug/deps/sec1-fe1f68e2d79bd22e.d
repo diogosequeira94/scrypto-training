@@ -1,0 +1,11 @@
+/Users/ctw01015/Desktop/MyProjects/scrypto-training/target/debug/deps/libsec1-fe1f68e2d79bd22e.rmeta: /Users/ctw01015/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sec1-0.2.1/src/lib.rs /Users/ctw01015/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sec1-0.2.1/src/point.rs /Users/ctw01015/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sec1-0.2.1/src/error.rs /Users/ctw01015/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sec1-0.2.1/src/parameters.rs /Users/ctw01015/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sec1-0.2.1/src/private_key.rs /Users/ctw01015/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sec1-0.2.1/src/traits.rs /Users/ctw01015/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sec1-0.2.1/src/../README.md
+
+/Users/ctw01015/Desktop/MyProjects/scrypto-training/target/debug/deps/sec1-fe1f68e2d79bd22e.d: /Users/ctw01015/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sec1-0.2.1/src/lib.rs /Users/ctw01015/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sec1-0.2.1/src/point.rs /Users/ctw01015/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sec1-0.2.1/src/error.rs /Users/ctw01015/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sec1-0.2.1/src/parameters.rs /Users/ctw01015/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sec1-0.2.1/src/private_key.rs /Users/ctw01015/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sec1-0.2.1/src/traits.rs /Users/ctw01015/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sec1-0.2.1/src/../README.md
+
+/Users/ctw01015/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sec1-0.2.1/src/lib.rs:
+/Users/ctw01015/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sec1-0.2.1/src/point.rs:
+/Users/ctw01015/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sec1-0.2.1/src/error.rs:
+/Users/ctw01015/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sec1-0.2.1/src/parameters.rs:
+/Users/ctw01015/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sec1-0.2.1/src/private_key.rs:
+/Users/ctw01015/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sec1-0.2.1/src/traits.rs:
+/Users/ctw01015/.cargo/registry/src/index.crates.io-6f17d22bba15001f/sec1-0.2.1/src/../README.md:

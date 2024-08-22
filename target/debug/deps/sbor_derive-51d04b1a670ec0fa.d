@@ -1,0 +1,10 @@
+/Users/ctw01015/Desktop/MyProjects/scrypto-training/target/debug/deps/libsbor_derive-51d04b1a670ec0fa.dylib: /Users/ctw01015/.cargo/git/checkouts/radixdlt-scrypto-1833d92590086ce0/8c176b7/sbor-derive/src/lib.rs /Users/ctw01015/.cargo/git/checkouts/radixdlt-scrypto-1833d92590086ce0/8c176b7/sbor-derive/src/decode.rs /Users/ctw01015/.cargo/git/checkouts/radixdlt-scrypto-1833d92590086ce0/8c176b7/sbor-derive/src/describe.rs /Users/ctw01015/.cargo/git/checkouts/radixdlt-scrypto-1833d92590086ce0/8c176b7/sbor-derive/src/encode.rs /Users/ctw01015/.cargo/git/checkouts/radixdlt-scrypto-1833d92590086ce0/8c176b7/sbor-derive/src/type_id.rs /Users/ctw01015/.cargo/git/checkouts/radixdlt-scrypto-1833d92590086ce0/8c176b7/sbor-derive/src/utils.rs
+
+/Users/ctw01015/Desktop/MyProjects/scrypto-training/target/debug/deps/sbor_derive-51d04b1a670ec0fa.d: /Users/ctw01015/.cargo/git/checkouts/radixdlt-scrypto-1833d92590086ce0/8c176b7/sbor-derive/src/lib.rs /Users/ctw01015/.cargo/git/checkouts/radixdlt-scrypto-1833d92590086ce0/8c176b7/sbor-derive/src/decode.rs /Users/ctw01015/.cargo/git/checkouts/radixdlt-scrypto-1833d92590086ce0/8c176b7/sbor-derive/src/describe.rs /Users/ctw01015/.cargo/git/checkouts/radixdlt-scrypto-1833d92590086ce0/8c176b7/sbor-derive/src/encode.rs /Users/ctw01015/.cargo/git/checkouts/radixdlt-scrypto-1833d92590086ce0/8c176b7/sbor-derive/src/type_id.rs /Users/ctw01015/.cargo/git/checkouts/radixdlt-scrypto-1833d92590086ce0/8c176b7/sbor-derive/src/utils.rs
+
+/Users/ctw01015/.cargo/git/checkouts/radixdlt-scrypto-1833d92590086ce0/8c176b7/sbor-derive/src/lib.rs:
+/Users/ctw01015/.cargo/git/checkouts/radixdlt-scrypto-1833d92590086ce0/8c176b7/sbor-derive/src/decode.rs:
+/Users/ctw01015/.cargo/git/checkouts/radixdlt-scrypto-1833d92590086ce0/8c176b7/sbor-derive/src/describe.rs:
+/Users/ctw01015/.cargo/git/checkouts/radixdlt-scrypto-1833d92590086ce0/8c176b7/sbor-derive/src/encode.rs:
+/Users/ctw01015/.cargo/git/checkouts/radixdlt-scrypto-1833d92590086ce0/8c176b7/sbor-derive/src/type_id.rs:
+/Users/ctw01015/.cargo/git/checkouts/radixdlt-scrypto-1833d92590086ce0/8c176b7/sbor-derive/src/utils.rs:
